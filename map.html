@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Touverre</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+<style>
+body { margin: 0; padding: 0; }
+#map { position: fixed; top: 0; bottom: 0; width: 100%; z-index: -1;}
+</style>
+</head>
+<body>
+<style>
+
+
+#fly_uqac, #venice, #first_century, #rome, #england, #penn, #sicily, #touverre, #démarche {
+display: inline-block;
+position: fixed;
+margin: 0px auto;
+height: 40px;
+padding: 10px;
+border: none;
+border-radius: 3px;
+font-size: 12px;
+color: #fff;
+background: #ee8a65;
+}
+
+#first_century{
+    top:10px;
+}
+#rome{
+    top:52px;
+}
+#venice{
+    top:94px;
+}
+#england{
+    top:136px;
+}
+#penn{
+    top:178px;
+}
+#sicily{
+    top:220px;
+}
+#fly_uqac {
+top:262px;
+}
+#touverre{
+top:304px;
+}
+#démarche{
+top:346px;
+}
+
+
+#fly_uqac:hover, #venice:hover, #first_century:hover, #rome:hover, #england:hover, #penn:hover, #sicily:hover, #touverre:hover, #démarche:hover {
+	background-color: white; /* Green */
+	color: #ee8a65;
+	}
+
+.mapboxgl-popup {
+	max-width: 400px;
+	font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+	}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+</style>
+<div style="float: left; width: 60%", id="map"></div>
+<div style="float: right; width: 36%; margin-left: 2%; margin-right: 2%;", id="info"> 
+	<section id="intro" class="active">
+		<h1>Verre Soufflé en Saguenay</h1>
+		<h2>L'histoire du verre soufflé</h2>
+		<p>Le verre, fait du la silice (le sable), la chaux, la soude ou la potasse existe depuis des milliers d'années. Pour faire le verre soufflé, les ingrédients sont combinés et chauffés à 800 degrés, puis de l'air est soufflé dans le verre en fusion pour créer des formes creuses et des récipients. Le verre soufflé a une longue histoire à travers le monde. Continuez la lecture pour connaître les origines du verre soufflé, Giuseppe Benedetto et l'arrivée du verre soufflé à Saguenay.</p>
+		<h3>1er siècle avant JC</h2>
+		<p>On croit que le soufflage du verre a commencé au 1er siècle avant Jésus-Christ dans les régions connues aujourd'hui sous le nom d'Israël, d'Iran, de Palestine et de Liban.</p>
+		<p><img src=/Users/anabelreining/Downloads/early_glass.webp alt="Early Glass" style="width: 90%" img/>
+		</section>
+		<section id="Rome">
+		<h3>Les ateliers de verre à Rome</h2>
+		<p>Le gouvernement romain crée de grands ateliers de verriers qui produisent du verre soufflé utilitaire ou décoratif. Ils ont rapidement découvert comment créer des formes plus complexes à l'aide de moules.</p>
+		<p><img src=/Users/anabelreining/Downloads/roman_glass.jpeg alt="Roman Glass" style="width: 90%" img/>
+		</section>
+		<section id="Venise">
+		<h3>Le verre vénitien</h2>
+		<p>Le commerce avec le Moyen-Orient a amené le soufflage du verre à Venise, qui est alors devenue un chef de file dans l'industrie du soufflage du verre. Les serres deviennent si nombreuses que les verriers sont déplacés sur l'île de Murano.</p>
+		<p><img src=/Users/anabelreining/Downloads/murano_museum_glass.jpeg alt="Early Glass" style="width: 90%" img/>
+		<h4>L'arte Vetraria</h3>
+		<p>Le guide de la verrerie l'Arte Vetraria a été rédigé par un alchimiste du nom d'Antonio Neri.</p>
+		<p><img src=/Users/anabelreining/Downloads/arte_vetraria.jpeg alt="Early Glass" style="width: 90%" img/>
+		</section>
+		<section id="USA">
+		<h3>La verrerie en Amérique</h3>
+		<p>La première verrerie à succès en Amérique a été créée en 1739 en Pennsylvanie. D'autres serres ont rapidement ouvert leurs portes dans le New Jersey et le Massachusetts.</p>
+		<p><img src=/Users/anabelreining/Downloads/Dyott-Glass-Work.jpeg alt="Dyottville Glass Works" style="width: 90%" img/>
+		</section>
+		<section id="science">
+		<h3>Le soufflage du verre : Art et science</h2>
+		<p>Dans les années 1600, on a découvert que la fabrication du verre avec des courbes particulières lui conférait des propriétés de grossissement, ce qui a conduit à l'invention du télescope et du microscope.Au cours des 300 années suivantes, de nombreux progrès ont été réalisés dans la création artistique à l'aide des techniques de soufflage du verre.</p>
+		<p><img src=/Users/anabelreining/Downloads/telescope.jpeg alt="Telescope" style="width: 90%" img/>
+		</section>
+		<section id="Sicily">
+		<h2>Giuseppe Benedetto</h2>
+		<h3>Les débuts de la vie</h3>
+		<p>Giuseppe Benedetto est né en Italie en 1951, où il habitait jusqu'en 1967, quand il a déménagé au Québec pour étudier. Il a travaillé beaucoup de techniques du verre, et il a reçu un baccalauréat en enseignement des arts de l'Université du Québec à Montréal. En 1994, il obtient une maîtrise en art à l'UQAC.</p>
+		<p><img src=/Users/anabelreining/Downloads/Giuseppe_Benedetto.webp alt="Tester dog" style="width: 90%" img/>
+		</section>
+		<section id="musee">
+		<h3>Touverre : Atelier et musée de Benedetto</h3>
+		<p>En 1993 Benedetto a ouvert la Verrerie d'art Touverre inc: la première verrerie d'art au Saguenay-Lac-Saint-Jean. Touverre est un economusée: un métier d'art qui utilise un savoir-faire authentique dans fabrication.
+		</p>
+		<p> Choses à faire:
+			<ul><li>1. Démonstration de verre soufflé
+				“Assistez en direct à la création d'une œuvre de verre…”
+				Tarifs:
+				<ul><li>$7.00 adult</li><li>$6.00 etudiant</li><li>$18.00 famille</li></ul>
+				</li><li>2. Atelier découverte de soufflage de verre. 
+					Tarifs: $50 - $120 en fonction de ce qui est fabriqué<li> <li>3. Activité de polissage de pierre fabrique ton bijou.
+						Après une démonstration, vous pourrez choisir une pierre pour polissage. </li><li>Ou, vous pouvez magasiner à la boutique!</li></ul>
+			</p>
+		</p>
+		<img src=/Users/anabelreining/Downloads/atelier_1.webp alt="Tester dog" style="width: 90%" img/>
+	</section>
+	<section id="demarche">
+		<h3>Sa Démarche</h3>
+		<p>Benedetto utilise du verre avec l'acier, le granit, l'aluminium, et le bronze. Il croit que les objets 'racontent des moments, des idées, des souvenirs. Nous percevons les objets par les mémoires qu'ils racontent, et par l'usure au fil de temps. Benedetto veut que ses œuvres soient liées à l'environnement, aux mythes et légendes que reflètent la société d'aujourd'hui.  
+		</p>
+		</p>
+		<img src=/Users/anabelreining/Downloads/Trophée_m.webp alt="Tester dog" style="width: 90%" img/>
+		<h3>Œuvres diverses</h3>
+	</section>
+	<section id="works">
+		<p><img src=/Users/anabelreining/Downloads/monstres_marins.png alt="Monstres Marins" style="width: 90%" img/>
+		<p>Monstres marins, 2010</p>
+		<p><img src=/Users/anabelreining/Downloads/bird1.png alt="Monstres Marins" style="width: 90%" img/>
+			<p><img src=/Users/anabelreining/Downloads/whale.png alt="Monstres Marins" style="width: 90%" img/>
+				<p><img src=/Users/anabelreining/Downloads/bird2.png alt="Monstres Marins" style="width: 90%" img/>
+					<p><img src=/Users/anabelreining/Downloads/star.png alt="Monstres Marins" style="width: 90%" img/>
+					</section>
+
+	
+</div>
+<br>
+
+<button id="first_century">1er siècle avant JC</button>
+<button id="rome">Rome</button>
+<button id="venice">Venise</button>
+<button id="england">Angleterre</button>
+<button id="penn">Pennsylvania</button>
+<button id="sicily">Sicily</button>
+<button id="fly_uqac">UQAC</button>
+<button id="touverre">Touverre</button>
+<button id="démarche">Saguenay</button>
+
+
+<script>
+	mapboxgl.accessToken = 'pk.eyJ1IjoiYXJlaW5pbmcxMiIsImEiOiJjbDdxaHRqOW8wNWV5M3Rta2tidzMxaXlmIn0.7o5h3PQKKV62tWbTBGOLYA';
+const map = new mapboxgl.Map({
+container: 'map',
+// Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+style: 'mapbox://styles/areining12/clij6rpdq00p801qfd3kt50qc',
+center: [35.313913, 32.799382],
+zoom: 6
+});
+
+
+map.on('load', () => {
+	map.addSource('places', {
+		'type': 'geojson',
+		'data': {
+			'type': 'FeatureCollection',
+			'features': [
+			{
+				"type": "Feature",
+				"geometry": {
+				"type": "Point",
+				"coordinates": [14.324039, 37.454819]
+				},
+				"properties": {
+				"name": "Sicily",
+				'icon': 'art-gallery'
+				}
+			},
+			{
+				"type": "Feature",
+				"geometry": {
+				"type": "Point",
+				"coordinates": [-70.855945, 48.317125]
+				},
+				"properties": {
+				"name": "Touverre",
+				'icon': 'art-gallery'
+				}
+			},
+			{
+				"type": "Feature",
+				"geometry": {
+				"type": "Point",
+				"coordinates": [-71.051710, 48.418942]
+				},
+				"properties": {
+				"name": "UQAC",
+				'icon': 'school'
+				}
+			}, 
+			{
+				"type": "Feature",
+				"geometry": {
+				"type": "Point",
+				"coordinates": [-70.854022, 48.316787]
+				},
+				"properties": {
+				"name": "Musée du Fjord",
+				'icon': 'art-gallery'
+				}
+			},
+			{
+				"type": "Feature",
+				"geometry": {
+				"type": "Point",
+				"coordinates": [35.313913, 32.799382]
+				},
+				"properties": {
+				"name": "Centered: Israel/Lebanon",
+				'icon': 'art-gallery'
+				}
+			},
+			{
+				"type": "Feature",
+				"geometry": {
+				"type": "Point",
+				"coordinates": [12.469867, 41.869336]
+				},
+				"properties": {
+				"name": "Rome",
+				'icon': 'art-gallery'
+				}
+			},
+			{
+				"type": "Feature",
+				"geometry": {
+				"type": "Point",
+				"coordinates": [12.353940, 45.454609]
+				},
+				"properties": {
+				"name": "Island of Murano",
+				'icon': 'art-gallery'
+				}
+			},
+			{
+				"type": "Feature",
+				"geometry": {
+				"type": "Point",
+				"coordinates": [-76.665277, 40.844101]
+				},
+				"properties": {
+				"name": "Pennsylvania",
+				'icon': 'art-gallery'
+				}
+			}
+			]
+		}
+	})
+
+	// Add a layer showing the places.
+
+	const chapters = {
+		'intro': {
+			center: [35.313913, 32.799382],
+			zoom: 6,
+			speed: 0.3
+		},
+		'Rome': {
+			center: [12.469867, 41.869336],
+			zoom: 10,
+			speed: 0.3
+		},
+		'Venise': {
+			center: [12.353940, 45.454609],
+			zoom: 13,
+			speed: 0.3
+		}, 
+		'USA': {
+			center: [-76.665277, 40.844101],
+			zoom: 6,
+			speed: 0.3
+		}, 
+		'science': {
+			center: [-0.838319, 52.171360],
+			zoom: 6,
+			speed: 0.3
+		},
+		'Sicily': {
+			center: [14.324039, 37.454819],
+			zoom: 7,
+			speed: 0.3
+		},
+		'musee': {
+			center: [-70.855945, 48.317125],
+			zoom: 18,
+			speed: 0.3
+		},
+		'demarche': {
+			center: [-71.137643, 48.387656],
+			zoom: 10,
+			speed: 0.3
+		}
+
+	}
+
+	let activeChapterName = 'intro';
+	function setActiveChapter(chapterName) {
+	if (chapterName === activeChapterName) return;
+	
+	map.flyTo(chapters[chapterName]);
+	
+	document.getElementById(chapterName).classList.add('active');
+	document.getElementById(activeChapterName).classList.remove('active');
+	
+	activeChapterName = chapterName;
+	}
+
+	function isElementOnScreen(id) {
+		const element = document.getElementById(id);
+		const bounds = element.getBoundingClientRect();
+		return bounds.top < window.innerHeight && bounds.bottom > 0;
+		}
+
+	// On every scroll event, check which element is on screen
+	window.onscroll = () => {
+	for (const chapterName in chapters) {
+	if (isElementOnScreen(chapterName)) {
+	setActiveChapter(chapterName);
+	break;
+	}
+	}
+	};
+	map.addLayer({
+	'id': 'places',
+	'type': 'symbol',
+	'source': 'places',
+	'layout': {
+	'icon-image': ['get', 'icon'],
+	'icon-allow-overlap': true
+	}
+	});
+
+	// When a click event occurs on a feature in the places layer, open a popup at the
+	// location of the feature, with description HTML from its properties.
+	map.on('click', 'places', (e) => {
+	// Copy coordinates array.
+	const coordinates = e.features[0].geometry.coordinates.slice();
+	const description = e.features[0].properties.name;
+	
+	// Ensure that if the map is zoomed out such that multiple
+	// copies of the feature are visible, the popup appears
+	// over the copy being pointed to.
+	while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+	coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+	}
+	
+	new mapboxgl.Popup()
+	.setLngLat(coordinates)
+	.setHTML(name)
+	.addTo(map);
+	});
+	
+	// Add a layer showing the places.
+	map.addLayer({
+	'id': 'places',
+	'type': 'symbol',
+	'source': 'places',
+	'layout': {
+	'icon-image': ['get', 'icon'],
+	'icon-allow-overlap': true
+	}
+	});
+	
+});
+
+/*
+document.getElementById('fly').addEventListener('click', () => {
+// Fly to a random location
+map.flyTo({
+center: [(Math.random() - 0.5) * 360, (Math.random() - 0.5) * 100],
+essential: true // this animation is considered essential with respect to prefers-reduced-motion
+});
+});*/
+
+document.getElementById('fly_uqac').addEventListener('click', () => {
+// Fly to a random location
+map.flyTo({
+center: [-71.051710, 48.418942],
+zoom: 16,
+essential: true // this animation is considered essential with respect to prefers-reduced-motion
+});
+
+/*
+new mapboxgl.Popup()
+	.setLngLat([-71.051710, 48.418942])
+	.setHTML("UQAC" + '<p><img src=/Users/anabelreining/Downloads/dog_in_coat.png alt="Tester dog" width="250" height="200" img/>')
+	//.setHTML('<p><img src='+e.features[0].properties.image+'></img></p>')
+	.addTo(map);*/
+});
+
+document.getElementById('first_century').addEventListener('click', () => {
+// Fly to a random location
+map.flyTo({
+center: [35.313913, 32.799382],
+zoom: 6,
+essential: true // this animation is considered essential with respect to prefers-reduced-motion
+});
+});
+document.getElementById('rome').addEventListener('click', () => {
+// Fly to a random location
+map.flyTo({
+center: [12.469867, 41.869336],
+zoom: 10,
+essential: true // this animation is considered essential with respect to prefers-reduced-motion
+});
+});
+document.getElementById('venice').addEventListener('click', () => {
+// Fly to a random location
+map.flyTo({
+center: [12.353940, 45.454609],
+zoom: 13,
+essential: true // this animation is considered essential with respect to prefers-reduced-motion
+});
+});
+document.getElementById('england').addEventListener('click', () => {
+// Fly to a random location
+map.flyTo({
+center: [-0.838319, 52.171360],
+zoom: 10,
+essential: true // this animation is considered essential with respect to prefers-reduced-motion
+});
+});
+document.getElementById('penn').addEventListener('click', () => {
+// Fly to a random location
+map.flyTo({
+center: [-76.665277, 40.844101],
+zoom: 6,
+essential: true // this animation is considered essential with respect to prefers-reduced-motion
+});
+});
+document.getElementById('sicily').addEventListener('click', () => {
+// Fly to a random location
+map.flyTo({
+center: [14.324039, 37.454819],
+zoom: 7,
+essential: true // this animation is considered essential with respect to prefers-reduced-motion
+});
+});
+document.getElementById('touverre').addEventListener('click', () => {
+// Fly to a random location
+map.flyTo({
+center: [-70.855945, 48.317125],
+zoom: 18,
+essential: true // this animation is considered essential with respect to prefers-reduced-motion
+});
+});
+document.getElementById('démarche').addEventListener('click', () => {
+// Fly to a random location
+map.flyTo({
+center: [-71.137643, 48.387656],
+zoom: 10,
+essential: true // this animation is considered essential with respect to prefers-reduced-motion
+});
+});
+
+
+ // Change the cursor to a pointer when the mouse is over the places layer.
+map.on('mouseenter', 'places', () => {
+map.getCanvas().style.cursor = 'pointer';
+});
+ 
+// Change it back to a pointer when it leaves.
+map.on('mouseleave', 'places', () => {
+map.getCanvas().style.cursor = '';
+});
+/*
+
+
+
+ // Change the cursor to a pointer when the mouse is over the places layer.
+map.on('mouseenter', 'places', () => {
+map.getCanvas().style.cursor = 'pointer';
+});
+ 
+// Change it back to a pointer when it leaves.
+map.on('mouseleave', 'places', () => {
+map.getCanvas().style.cursor = '';
+});
+
+*/
+
+
+
+
+</script>
+
+ 
+</body>
+</html>
